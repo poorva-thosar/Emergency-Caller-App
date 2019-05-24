@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">EmergencyCaller1</string>
+    <string name="telephony_enabled">yes</string>
+    <string name="telephony_not_enabled">no</string>
+</resources>
