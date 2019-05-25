@@ -39,13 +39,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
         if (ActivityCompat.checkSelfPermission(com.example.poorva.emergencycaller1.MainActivity.super.getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(com.example.poorva.emergencycaller1.MainActivity.super.getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
             return;
         }
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
@@ -77,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
         //StringBuilder stringBuilder=new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=1500&type=restaurant&keyword=cruise&key=AIzaSyC7KPNhWH55VmY9rdQ027Q_gGVAeZBhM5E");
         StringBuilder stringBuilder = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
         stringBuilder.append("location=" + latitude + "," + longitude);
-        stringBuilder.append("&radius=5000&keyword=hospitals&key=AIzaSyC7KPNhWH55VmY9rdQ027Q_gGVAeZBhM5E");
+        stringBuilder.append("&radius=5000&keyword=hospitals&key=YOUR API KEY");
 
         flag = false;
         String url = stringBuilder.toString();
@@ -88,7 +81,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
 
     @Override
     public void processFinish(String output) {
-        // StringBuilder sb=new StringBuilder("https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJN1t_tDeuEmsRUsoyG83frY4&fields=name,rating,formatted_phone_number&key=AIzaSyDyL9KVP-Ciro3_o72l4VbVdibDq2KloNI");
         nextclassinput = output;
         txtLat.setText(output);
         Intent intent = new Intent(MainActivity.this, TestClass.class);
